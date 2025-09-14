@@ -1,0 +1,65 @@
+create database rahul;
+select * from ele_store1;
+
+select count(distinct(orderid))  as total_orders from ele_store1;
+
+select count(distinct(channel)) as unique_channels from ele_store1;
+
+select count(distinct(city)) from ele_store1;
+
+select count(distinct(city)) as unique_values, country from ele_store1
+group by country;
+
+select count(distinct(productname)) as total_products from ele_store1;
+
+select sum(sales) as total_sales,sum(profit) as total_profit from ele_store1;
+
+select country,region,sum(sales) as total_sales from ele_store1
+group by country,region;
+
+select sum(orderqty) as total_orderqty,promotionname from ele_store1
+group by PromotionName;
+
+select sum(sales) as total_sales,region from ele_store1
+where region="asia"
+group by region;
+
+select sum(profit) as total_profit,region,country from ele_store1
+where region="asia" and country="india"
+group by region,country;
+
+select sum(orderqty) as total_qty,manufacturer,productname from ele_store1
+group by Manufacturer,ProductName;
+
+select sum(orderqty) as total_qty,city from ele_store1
+group by city
+having sum(orderqty) > 27;
+
+select sum(sales) as total_sales,country,city from ele_store1
+where country="china" and city="beijing"
+group by city,country;
+
+select sum(sales) as total_sales,promotionname from ele_store1
+where PromotionName="asian holiday promotion"
+group by PromotionName;
+
+select sum(profit) as total_profit,manufacturer from ele_store1
+where Manufacturer="Contoso, Ltd"
+group by Manufacturer;
+
+select sum(sales) as total_sales,sum(orderqty) as total_orderqty,productcategory from ele_store1
+group by ProductCategory;
+
+select sum(sales) as total_sales,region from ele_store1
+where sales between 1057 and 26700
+group by region;
+
+select count(distinct( orderid)) as total_qty,city from ele_store1
+where city="Pittsfield"
+group by city;
+
+select sum(sales) as total_sales,sum(Profit) as total_profit,country,region,city from ele_store1
+group by city,country,region;
+
+select sum(unitcost) as total_unitcost,sum(price) as total_price,productsubcategory,productcategory,manufacturer from ele_store1
+group by ProductCategory,ProductSubCategory,Manufacturer;
