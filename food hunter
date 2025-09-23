@@ -1,0 +1,22 @@
+#Show all the data in the restaurants table
+SELECT * 
+FROM restaurants;
+# Show only the dishes, their prices, and the calories in them from the food_items table
+SELECT item_name AS dish, price, calories 
+FROM food_items;
+#Retrieve the order ids, customer ids, and total prices of all orders
+SELECT 
+    order_id, 
+    customer_id, 
+    SUM(total_price) AS total_order_price
+FROM orders
+GROUP BY order_id, customer_id;
+#Count the number of restaurants in the restaurants table
+SELECT COUNT(*) AS total_restaurants 
+FROM restaurants;
+#Find the unique number of cuisines served by the restaurants
+SELECT COUNT(DISTINCT cuisine) AS unique_cuisines
+FROM restaurants;
+#Find the number of unique dishes served by restaurants from the food_items table
+SELECT COUNT(DISTINCT item_name) AS unique_dishes
+FROM food_items;
